@@ -1,6 +1,6 @@
 services:
   watchtower:
-    image: containrrr/watchtower:armhf-latest
+    image: containrrr/watchtower:latest
     environment:
       -  WATCHTOWER_POLL_INTERVAL=60 # Poll every 60 seconds
       - WATCHTOWER_LABEL_ENABLE=true
