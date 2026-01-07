@@ -1,0 +1,19 @@
+services:
+  watchtower:
+    image: containrrr/watchtower:armhf-latest
+    environment:
+      -  WATCHTOWER_POLL_INTERVAL=60 # Poll every 60 seconds
+      - WATCHTOWER_LABEL_ENABLE=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: watchtower
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+  
+  app:
+    image: heclll/simple-express-app:latest
+    ports:
+      - 127.0.0.1:8080:8080
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
